@@ -1,0 +1,421 @@
+                                /* RESET CSS*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+ 
+
+
+
+
+ 
+                                    /*PAGE INDEX*/
+
+body {  
+    /*Initialisation du fond du site avec un dégradé de gris*/
+        background: linear-gradient(-45deg,#E0E0E0,#909090);
+        display : flex;
+        flex-direction : column;
+        align-items: center;
+        /* Police d'écriture*/
+        font-family :'Trebuchet','Arial','Verdana','Sans-Serif';
+        /*Espacement entre les lignes */
+        line-height : 1.2;
+      }
+
+/*Bas de page pour chaque page du site*/
+footer{
+    border : 900px transparent; 
+    text-align: center;
+}
+/* Mise en gras*/
+strong{
+    font-weight: bold;
+}
+/*Citations en italique avec un espacements*/
+blockquote{
+    font-style :italic;
+    position : relative;
+    padding : 10px 30px 10px 30px;
+}
+
+nav{
+    /*Arrière plan en blanc avec 80% d'opacité */
+    background-color :rgba(255, 255, 255,0.8);
+    width : 80%;
+    position : fixed;
+    height : 40px;
+    /* Ordre des bordures : haut gauche haut droit bas droit bas gauche*/
+    border-radius: 0 0 10px 10px;
+    /* Ajout du nav en arrière plan par rapport à l'image*/
+    z-index : 2;
+}
+
+/* L'arrière plan devient opaque quand l'utilisateur met le curseur dessus*/
+nav:hover{
+    background-color: white;
+}
+/* Masquage du sous-menu */
+nav ul li ul{
+    display : none;
+}
+
+/*Sous-menu du menu "Les actus"*/
+nav ul li:nth-child(2):hover>ul{
+    display : block;
+    border-radius : 0 0 10px 10px;
+    background: white;
+}
+/*Suppression du caractère "☰" (code du content : \002630)*/
+nav ul li:nth-child(2):hover>ul ::before{
+    content : none;
+}
+
+/*Menu en gras*/
+nav ul a{
+    font-weight : bold;
+}
+
+/*Attribution de la couleur des liens en noir & Suppression du surlignage des liens*/
+a{
+    color :black;
+    text-decoration : none; 
+}
+
+/*Premiere balise ul de la balise nav*/
+nav ul{
+    /*Suppression des puces des listes*/
+    list-style: none;
+    display : flex;
+    justify-content: space-around;
+    margin-top : 6px;
+}
+
+/*Ajustement du sous menu ainsi que le positionement des menus*/
+nav ul li a{
+    text-decoration :none;
+    display : block;
+    border-radius:10px;
+    z-index : 1000;
+    padding : 5px;
+}
+/*Le sous menu a un fond noir et l'écriture est en blanc dès que l'utilisateur met le curseur sur le sous-menu*/
+nav ul li a:hover{
+    background-color : black;
+    color : white;
+}
+/* Ajout du caractère "☰" sur les menus dès que l'utilisateur met le curseur sur l'un des menus*/
+nav ul li a:hover::before{
+    content : "\2630";
+}
+
+/*Ajustement et ajout de l'image de "l'Echo de l'AED" dans l'entête du site pour chaque page du site*/
+header{
+    background-image: url("../images/fond.png");
+    width: 900px;
+    position :relative;
+    margin-top : 42px;
+    margin-bottom : 50px;
+    border : 1px transparent;
+    height : 200px;
+    
+}
+
+/* Réglage du titre "l'écho de l'AED"*/
+header img{
+    margin-top : 30px;
+    margin-left : 10px;
+}
+/*Réglage de la taille du titre en bas à droite*/
+header h1{
+    position :absolute;
+    right : 10px;
+    top : 162px;
+    font-weight : bold;
+    font-size : 24px;
+}
+
+/* Caractéristiques de la balise main */
+#index{
+    width : 900px;
+    height : auto;
+}
+
+/* Second titres -> A la une, info brûlante ...*/
+#index section h2{
+    background-color: #FF0000;
+    display : inline-block;
+    position :absolute;
+    top : -31px;
+    height: 17px;
+    color : white;
+    padding : 7px;
+    font-size : 15px;
+    border-radius: 0 10px 0 0;
+    margin : auto;
+    left : 0;
+    font-weight : bold;
+}
+
+/* Taille des titres en gras des miniatures des articles de la page index*/
+#index h3{
+    font-size : 16px;
+    font-weight : bold;
+}
+
+/* Réglage des sections à part la dernière section */
+#index section:not(:last-child){
+    position : relative;
+    border-radius : 0 10px 10px 10px;
+    /* Ombres */
+    box-shadow: 10px 15px 15px black;
+    background-color : white;
+    
+    display : flex;
+    justify-content: space-between;
+    margin-bottom : 50px;
+
+}
+/* Réglage des articles dans les sections*/
+#index section article{
+    width : 260px;
+    border : solid white 10px;
+    border-radius : 10px 0 20px 0;
+    margin :10px;
+    position :relative;
+    
+}
+/* Ajustement de la taille des images des articles */
+#index section article img{
+    width : 250px;
+    height : 187px
+}
+/*Espacement entre les paragraphes du tableau horoscope*/
+#index section p{
+    padding : 5px;
+}
+
+/* Apparition d'un halo rouge quand l'utilisateur met le curseur de la souris sur un article */
+#index section article img:hover{
+    /* Ordre : Horizontal,Vertical flou, Etalement*/
+    box-shadow: 1px 1px 10px 5px rgba(255, 0, 0, 0.3);
+}
+/* Section exclusivement pour l'horoscope */
+#index section:last-child{
+    position : relative;
+    border-radius : 0 10px 10px 10px;
+    /*Ombres*/
+    box-shadow : 10px 15px 15px black;
+    background-color : white;
+    margin-bottom : 50px;
+}
+
+/* Espacement entre les paragraphes (4eme enfant section) de la section horoscope */
+#index section:nth-child(4){
+    padding : 5px 0px 15px 10px;
+}
+/* Redimensionnement du tableau*/
+#horoscope{
+    width : 700px;
+    /* Centre le tableau */
+    margin :auto;
+    border-collapse: collapse; /* Fusionne les bordures des cellules */
+}
+
+/* Mise en gras des titres de chaque colonne */
+#horoscope tbody tr:first-child{
+    font-weight : bold;
+}
+
+/* Espacement et Intérieur de la cellule*/
+#horoscope td{
+    border : 1.5px solid black;
+    padding : 7px;
+}
+
+
+#horoscope tr:not(:first-child){  
+    text-align: center; /* Centre horizontalement le texte et les icônes */  
+    vertical-align: middle; /* Centre verticalement le texte dans les cellules */  
+}
+
+/* Ajustement de la largeur de la colonne "Date" */
+#horoscope td:nth-child(2){  
+    width: 135px;   
+}
+
+/* Ajustement de la largeur de la colonne "Signe"*/
+#horoscope td:nth-child(3){
+    height : 10px;
+}
+
+/*Ecart entre les paragraphes du tableau et alignement des textes à gauche*/
+#horoscope tbody tr td p{
+    padding : 4px;
+    text-align : left;
+}
+
+
+
+
+
+
+
+
+
+                                    /* PAGE 2022-oct-17 */
+                                    
+/* Dimensions et espacement pour chaque article*/
+#actus article{
+    width : 900px;
+    border : solid rgb(248, 248, 248);
+    border-radius : 10px 0 20px 0;
+    background-color : white;
+    position :relative;
+    box-shadow: 10px 15px 15px black;
+    margin-bottom : 30px;
+}
+
+/* Alignement du titre et mis en gras du titre souligner*/
+#actus article h3{
+    margin-top : 4px;
+    margin-bottom : 10px;
+    font-weight :bold;
+    text-decoration :underline;
+}
+/* Espacement entre chaque paragraphe de chaque article */
+#actus article p{
+    padding : 10px;
+}
+
+/* Dimensions des images pour chaque article pour les pages d'actus*/
+#actus article img{
+    width : 250px;
+    height : 190px;
+    margin : 10px;
+
+}
+/* Images d'articles Pair */
+#actus article:nth-child(even) img {
+    float : right;
+    margin-left : 30px;
+}
+/* Images d'articles Impair */
+#actus article:nth-child(odd) img {
+    float : left;
+    margin-right : 30px;
+}
+
+
+/* Ajout de guillemets à chaque citation avant */
+#actus article blockquote::before{
+    content :"« ";  
+}
+/* Ajout de guillemets à chaque citation après */
+#actus article blockquote::after{
+    content :" »";
+}
+
+/* Bordure de la fin de page d'article */
+#actus article footer{
+    border-top : solid black 1px;
+    font-size : 11px;
+    text-align : right;
+}
+
+/* Affiche l'URL suivie de l'image "lien_externe" pour les liens dans un article*/
+#actus article a:hover::after{
+    content: attr(href) url(../images/lien_externe.gif);
+}
+
+/* Ajout du lien de l'auteur en bleu */
+#actus article footer a{
+    color : blue;
+}
+
+/* Ajout des liens des musiques du choix de l'hymne en bleu */
+#actus article ul li a{
+    color : blue;
+}
+
+/* Attribution du lien "Don't fear the reaper" en bleu */
+#actus p a{
+    color : blue;
+}
+
+/* Ajout de l'icône checkbox pour le choix de l'hymne (list-style)*/
+#actus article ul li::before{
+    content: "\002611   ";
+}
+/*Suppression des puces des listes */
+#actus article ul li{
+    list-style :none;
+}
+
+/* Réglage et alignement des vidéos choisies pour déterminer l'hymne */
+#figures{
+    display : flex;
+    text-align : center;
+}
+
+
+#figures figure iframe{
+    margin : 15px;
+    /*Clips vidéo*/
+    width : 270px;
+    height : 170px;
+    /*Suppression de la bordure sur chaque vidéo (qui représentait une bordure noire)*/
+    border : transparent;
+}
+/*Titre des clips vidéo*/
+#figures figure figcaption{
+    font-size : 12px;
+    margin : auto;
+    margin-top : -15px;
+    padding : 10px;
+}

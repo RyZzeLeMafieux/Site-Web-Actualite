@@ -1,5 +1,3 @@
-                                /* RESET CSS*/
-
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -48,374 +46,687 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
- 
 
 
+/************************************************************************
+        DEBUT DE LA FEUILLE DE STYLE POUR LE SITE
+************************************************************************/
 
-
- 
-                                    /*PAGE INDEX*/
-
-body {  
-    /*Initialisation du fond du site avec un dégradé de gris*/
-        background: linear-gradient(-45deg,#E0E0E0,#909090);
-        display : flex;
-        flex-direction : column;
-        align-items: center;
-        /* Police d'écriture*/
-        font-family :'Trebuchet','Arial','Verdana','Sans-Serif';
-        /*Espacement entre les lignes */
-        line-height : 1.2;
-      }
-
-/*Bas de page pour chaque page du site*/
-footer{
-    border : 900px transparent; 
-    text-align: center;
+body {
+    font-family: Trebuchet, arial, verdana, sans-serif;
+    line-height: 1.2;
+    background: #EEE; /* For browsers that do not support gradients */
+    /*background: -webkit-linear-gradient(left top, #999, #EEE); /* For Safari 5.1 to 6.0 */
+    /*background: -o-linear-gradient(bottom right, #999, #EEE); /* For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(bottom right, #999, #EEE); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom right, #999, #EEE); /* Standard syntax */
 }
-/* Mise en gras*/
-strong{
+
+i {
+    font-style: italic;
+}
+
+strong {
     font-weight: bold;
 }
-/*Citations en italique avec un espacements*/
-blockquote{
-    font-style :italic;
-    position : relative;
-    padding : 10px 30px 10px 30px;
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    display: block;
 }
 
-nav{
-    /*Arrière plan en blanc avec 80% d'opacité */
-    background-color :rgba(255, 255, 255,0.8);
-    width : 80%;
-    position : fixed;
-    height : 40px;
-    /* Ordre des bordures : haut gauche haut droit bas droit bas gauche*/
+h3 {
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 20px 0;
+    text-decoration: underline;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+a[href], a[href]:visited {
+    color: #0000DD;
+    text-decoration: none;
+}
+
+a[href]:hover {
+    text-decoration: underline;
+}
+
+a[href^=http]:hover {
+    padding-right: 20px;
+    background: url(../images/lien_externe.gif) right center no-repeat;
+}
+a[href^=http]:hover::after {
+    content: " (" attr(href) ")";
+}
+
+body > header, main, body > footer {
+    width: 900px;
+    margin: 0px auto;
+    background-color: transparent;
+}
+
+
+
+p, blockquote {
+    text-align: justify;
+    margin: 10px auto;
+}
+
+blockquote {
+    font-style: italic;
+    padding: 5px 30px; 
+    quotes: "«\00A0" "\00A0»";
+}
+
+blockquote::before {
+    content: open-quote;
+    font-size: 18px;
+}
+blockquote::after {
+    content: close-quote;
+    font-size: 18px;
+}
+
+body > aside {
+    border-left: solid 1px #000;
+    text-align: center;
+    width: 160px;
+    position: fixed;
+    padding: 20px 0 20px 10px;
+}
+
+/************************************************************************
+                        Menu de navigation
+*************************************************************************/
+
+nav {
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+    width: 100%;
+    height: 40px;
+}
+
+nav > ul:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+nav > ul {
+    width: 80%;
+    height: 40px;
+    margin: 0 auto;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.4s linear 0s;
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 0 0 10px 10px;
-    /* Ajout du nav en arrière plan par rapport à l'image*/
-    z-index : 2;
 }
 
-/* L'arrière plan devient opaque quand l'utilisateur met le curseur dessus*/
-nav:hover{
+
+nav > ul > li {
+    display: inline;
+    float: left;
+    border-radius: 10px;
+    width: 20%;
+    overflow: visible;
+}
+    
+nav > ul > li > ul {
+    display: none;
+    margin-top: 5px;
+    margin-left: 0px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+nav > ul > li:hover > ul {
+    display: block;
+}
+
+nav > ul > li:hover > a::before {
+    content: "\2630\00A0";
+}
+
+
+nav a[href], nav a[href]:visited {
+    display: block;
+    font-weight: bold;
+    color: black;
+    border-radius: 10px;
+    transition: background 0.4s linear 0s;
+    padding: 10px 5px 10px 20px;
+}
+
+nav a[href]:hover {
+    text-decoration: none;
+}
+
+nav a[href]:hover {
+    color: #FFF;
+    border-radius: 10px;
+    background: #333;
+}
+
+/**********************************************************************
+                        EN-TETE 
+**********************************************************************/
+
+body > header {
+    position: relative;
+    margin-top: 42px;
+    background: transparent url(../images/fond.png) top left;
+    height: 200px;
+}
+
+header > img {
+    margin: 30px 0 0 10px;
+}
+
+header h1 {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+
+article {
     background-color: white;
 }
-/* Masquage du sous-menu */
-nav ul li ul{
-    display : none;
+
+
+
+/******************************************************************
+    Gestion des articles dans les pages des semaines + archives 
+*******************************************************************/
+
+/** Style des article */
+#actus > article {
+    box-shadow: 10px 10px 20px #000;
+    padding: 10px 20px;
+    margin: 20px 0 40px 0;
+    border-radius: 10px 0 20px 0;
 }
 
-/*Sous-menu du menu "Les actus"*/
-nav ul li:nth-child(2):hover>ul{
-    display : block;
-    border-radius : 0 0 10px 10px;
-    background: white;
+/** Images dans les articles (taille + animation au survol) */
+#actus > article img {
+    width: 250px;
+    height: 187px;
 }
-/*Suppression du caractère "☰" (code du content : \002630)*/
-nav ul li:nth-child(2):hover>ul ::before{
-    content : none;
+#actus > article img:hover:after {
+    content: attr(alt);
 }
 
-/*Menu en gras*/
-nav ul a{
-    font-weight : bold;
+
+/* Alternance images d'illsutrations à droite / à gauche */
+#actus > article:nth-child(even) > img {
+    float: right;
+    margin: 0px 0 10px 15px; 
+}
+#actus > article:nth-child(odd) > img {
+    float: left;
+    margin: 0px 15px 10px 0; 
 }
 
-/*Attribution de la couleur des liens en noir & Suppression du surlignage des liens*/
-a{
-    color :black;
-    text-decoration : none; 
+/** Style du pied d'article */
+#actus > article > footer {
+    margin-top: 20px;
+    border-top: solid 1px #333;
+    padding-top: 3px;
+    text-align: right;
+    font-size: 12px;
 }
 
-/*Premiere balise ul de la balise nav*/
-nav ul{
-    /*Suppression des puces des listes*/
-    list-style: none;
-    display : flex;
-    justify-content: space-around;
-    margin-top : 6px;
+/** Style des listes dans les articles */
+#actus article ul  {
+    padding-left: 10px;
+}
+#actus article ul li::before {
+    content: "\2611\00A0"; 
+    font-size: 20px;
 }
 
-/*Ajustement du sous menu ainsi que le positionement des menus*/
-nav ul li a{
-    text-decoration :none;
-    display : block;
-    border-radius:10px;
-    z-index : 1000;
-    padding : 5px;
-}
-/*Le sous menu a un fond noir et l'écriture est en blanc dès que l'utilisateur met le curseur sur le sous-menu*/
-nav ul li a:hover{
-    background-color : black;
-    color : white;
-}
-/* Ajout du caractère "☰" sur les menus dès que l'utilisateur met le curseur sur l'un des menus*/
-nav ul li a:hover::before{
-    content : "\2630";
+article h3[id] {
+    margin-top: -60px;
+    padding-top: 65px;
 }
 
-/*Ajustement et ajout de l'image de "l'Echo de l'AED" dans l'entête du site pour chaque page du site*/
-header{
-    background-image: url("../images/fond.png");
-    width: 900px;
-    position :relative;
-    margin-top : 42px;
-    margin-bottom : 50px;
-    border : 1px transparent;
-    height : 200px;
-    
+
+/****************************************************************** 
+                        Sections
+*******************************************************************/
+section {
+    position: relative;
+    display: block;
+    clear: both;
+    margin: 50px 0 60px 0;
+    background-color: white;    
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    border-radius: 0 10px 10px 10px;
+    box-shadow: 10px 10px 10px #000;
 }
 
-/* Réglage du titre "l'écho de l'AED"*/
-header img{
-    margin-top : 30px;
-    margin-left : 10px;
-}
-/*Réglage de la taille du titre en bas à droite*/
-header h1{
-    position :absolute;
-    right : 10px;
-    top : 162px;
-    font-weight : bold;
-    font-size : 24px;
-}
-
-/* Caractéristiques de la balise main */
-#index{
-    width : 900px;
-    height : auto;
-}
-
-/* Second titres -> A la une, info brûlante ...*/
-#index section h2{
-    background-color: #FF0000;
-    display : inline-block;
-    position :absolute;
-    top : -31px;
-    height: 17px;
-    color : white;
-    padding : 7px;
-    font-size : 15px;
+section > h2 {
+    position: absolute;
+    top: -30px;
+    left: 0px;
+    height: 20px;
+    background: red;
+    color: white;
+    font-weight: bold;
+    width: auto;
     border-radius: 0 10px 0 0;
-    margin : auto;
-    left : 0;
-    font-weight : bold;
+    padding: 5px 10px;
 }
 
-/* Taille des titres en gras des miniatures des articles de la page index*/
-#index h3{
-    font-size : 16px;
-    font-weight : bold;
+section article h3 {
+    font-size: 16px;
+    text-decoration: none;
 }
 
-/* Réglage des sections à part la dernière section */
-#index section:not(:last-child){
-    position : relative;
-    border-radius : 0 10px 10px 10px;
-    /* Ombres */
-    box-shadow: 10px 15px 15px black;
-    background-color : white;
-    
-    display : flex;
-    justify-content: space-between;
+/*** Sections de la page d'index ***/
+
+#index section h3 {
+    text-align: justify;
+}
+
+#index section article {
+    display: block;
+    float: left;
+    margin: 15px;
+    width: 260px;
+}
+#index section article img {
+    width: 260px;
+    height: 195px;
+}
+
+#index section {
+    min-height: 315px;
+}
+
+
+
+/** Liens dans les pages d'index */
+#index article > a, #index article > a:visited, #index article > a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+#index article > a:hover img {
+    box-shadow: 0px 0px 10px #F00;
+}
+
+.petit {
+    font-size: 80%;
+}
+
+
+/********************************************************************** 
+                        Blocs spécifiques 
+***********************************************************************/
+
+#figures {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin: 10px 0 20px 0;
+}
+
+#figures figure {
+    width: 30%;   
+}
+
+#figures iframe {
+    width: 100%;
+    height: auto;
+}
+
+#figures figcaption {
+    text-align: center;
+    font-size: 13px;
+}
+
+
+/****************************************************************
+                            Tableau horoscope
+****************************************************************/
+
+#horoscope {
+    width: 700px;
+    margin: 10px auto;
+    font-size: 14px;
+}
+
+#horoscope tr:first-child td {
+    font-weight: bold;
+}
+
+#horoscope tr {
+    height: 30px; 
+}
+
+#horoscope td {
+    padding: 5px 10px;
+    border: solid 1px #000;
+    text-align:justify;
+}
+
+#horoscope td:nth-child(1), #horoscope td:nth-child(2) {
+    width: 100px;
+}
+
+
+/****************************************************************
+                            Page A propos
+****************************************************************/
+
+/* Espace entre chaque article*/
+#redaction section article{
+    margin-top : 10px;
+    padding-top : 1px;
+    padding-bottom : 30px;
+}
+/* Réglage des images pour chaque article*/
+#redaction section article img{
+    float : left;
+    padding-left : 10px;
+    padding-right : 20px;
+}
+/************************************************************************
+                            Article Johnny Bigoude (2eme section)
+*************************************************************************/
+
+/* Espacement de la section de la 2eme section*/
+#redaction section:nth-of-type(2){
+    margin-top : 0px;
+
+}
+/* Espacement de l'article de la 2eme section */
+#redaction section:nth-of-type(2) article{
+    margin-top : 30px;
+}
+
+
+
+/* Espacement du paragraphe de l'article de la 2eme section*/
+#redaction section article p:nth-of-type(2){
+    padding-right : 9px;
+}
+
+#redaction section article:nth-child(2){
+    margin-bottom : 13px;
+}
+/* Réglage de l'espacement du texte de la 2eme section */
+#redaction section article p:nth-child(3){
+    padding-right : 10px;
+}
+
+/* Réglage de l'espacement de chaque paragraphe dans les articles a pars la 1ere et 2eme section*/
+#redaction section:not(:nth-of-type(2)) article p{
+    padding-right: 19px;
+}
+
+
+/*Modification de toutes les sections mise à part la première et la dernière */
+#redaction section:not(:first-child):not(:last-of-type){
+    float : left;
+    padding-left : 20px;
+    padding-right : 90px;
+    margin-bottom : 10px;
+    padding-right : 20px;
+}
+
+/*Selection de tous les articles de chaque section à pars la 2eme et le premier*/
+#redaction section:not(:nth-of-type(2)) article {
+    /* Ajout de la bande noire en haut de chaque image*/
+    border-top : solid black 2.5px;
+    width : 101%;
+    padding-top : 20px;
+
+    /* Largeur de chaque article */
     margin-bottom : 50px;
-
-}
-/* Réglage des articles dans les sections*/
-#index section article{
-    width : 260px;
-    border : solid white 10px;
-    border-radius : 10px 0 20px 0;
-    margin :10px;
-    position :relative;
     
 }
-/* Ajustement de la taille des images des articles */
-#index section article img{
-    width : 250px;
-    height : 187px
+
+/* Espacement du premier article dans la 4eme section*/
+#redaction section:nth-of-type(4) article:first-of-type{
+    padding-bottom : 50px;
 }
-/*Espacement entre les paragraphes du tableau horoscope*/
-#index section p{
-    padding : 5px;
-}
-
-/* Apparition d'un halo rouge quand l'utilisateur met le curseur de la souris sur un article */
-#index section article img:hover{
-    /* Ordre : Horizontal,Vertical flou, Etalement*/
-    box-shadow: 1px 1px 10px 5px rgba(255, 0, 0, 0.3);
-}
-/* Section exclusivement pour l'horoscope */
-#index section:last-child{
-    position : relative;
-    border-radius : 0 10px 10px 10px;
-    /*Ombres*/
-    box-shadow : 10px 15px 15px black;
-    background-color : white;
-    margin-bottom : 50px;
-}
-
-/* Espacement entre les paragraphes (4eme enfant section) de la section horoscope */
-#index section:nth-child(4){
-    padding : 5px 0px 15px 10px;
-}
-/* Redimensionnement du tableau*/
-#horoscope{
-    width : 700px;
-    /* Centre le tableau */
-    margin :auto;
-    border-collapse: collapse; /* Fusionne les bordures des cellules */
-}
-
-/* Mise en gras des titres de chaque colonne */
-#horoscope tbody tr:first-child{
-    font-weight : bold;
-}
-
-/* Espacement et Intérieur de la cellule*/
-#horoscope td{
-    border : 1.5px solid black;
-    padding : 7px;
-}
-
-
-#horoscope tr:not(:first-child){  
-    text-align: center; /* Centre horizontalement le texte et les icônes */  
-    vertical-align: middle; /* Centre verticalement le texte dans les cellules */  
-}
-
-/* Ajustement de la largeur de la colonne "Date" */
-#horoscope td:nth-child(2){  
-    width: 135px;   
-}
-
-/* Ajustement de la largeur de la colonne "Signe"*/
-#horoscope td:nth-child(3){
-    height : 10px;
-}
-
-/*Ecart entre les paragraphes du tableau et alignement des textes à gauche*/
-#horoscope tbody tr td p{
-    padding : 4px;
-    text-align : left;
-}
-
-
-
-
-
-
-
-
-
-                                    /* PAGE 2022-oct-17 */
-                                    
-/* Dimensions et espacement pour chaque article*/
-#actus article{
-    width : 900px;
-    border : solid rgb(248, 248, 248);
-    border-radius : 10px 0 20px 0;
-    background-color : white;
-    position :relative;
-    box-shadow: 10px 15px 15px black;
+/* Espacement du 2eme article dans la 4eme section */
+#redaction section:nth-of-type(4) article:nth-of-type(2){
     margin-bottom : 30px;
 }
 
-/* Alignement du titre et mis en gras du titre souligner*/
-#actus article h3{
-    margin-top : 4px;
-    margin-bottom : 10px;
-    font-weight :bold;
-    text-decoration :underline;
-}
-/* Espacement entre chaque paragraphe de chaque article */
-#actus article p{
-    padding : 10px;
+/* Espacement pour chaque premier paragraphe d'article de toutes les sections à pars la 2eme section*/
+#redaction section:not(:nth-of-type(2)) article p:first-of-type{
+    /*Décollement du premier paragraphe qui était vers le prénom des professionnels*/
+    padding-top : 30px;
 }
 
-/* Dimensions des images pour chaque article pour les pages d'actus*/
-#actus article img{
-    width : 250px;
-    height : 190px;
-    margin : 10px;
-
-}
-/* Images d'articles Pair */
-#actus article:nth-child(even) img {
-    float : right;
-    margin-left : 30px;
-}
-/* Images d'articles Impair */
-#actus article:nth-child(odd) img {
+/* Espacement de la dernière section (sinon elle serait collé à l'avant dernière vu qu'elles sont toutes fixés à gauche*/
+#redaction section:last-of-type{
     float : left;
-    margin-right : 30px;
+}
+
+/*Modification des professions des personnes en les mettant sur le côté droit avec un cadre*/
+#redaction section article h4{
+    /*Changement de couleur du texte en blanc*/
+    color : white;
+    /* Aligment du texte à droite*/
+    text-align:right;
+    /* Mise du fond en noir*/
+    background-color: black;
+    /* Placement des titres */
+    margin-top : -64px;
+    /* Réglage de la police d'écriture de leurs métiers*/
+    font-size : 14px;
+
+    /* Devrait se faire de manière automatique*/
+    margin-left :auto;
+    /*La largeur va être modifié selon la taille de l'écriture du métier*/
+    width : fit-content;
+    padding : 4px;
+
 }
 
 
-/* Ajout de guillemets à chaque citation avant */
-#actus article blockquote::before{
-    content :"« ";  
+
+                             /****************************************************************
+                                                        Page abonnement
+                            ****************************************************************/
+
+
+                            /****************Modification de la première section****************/
+
+                
+#abonnement form section:first-of-type table{
+    /*Centrage des informations à rentrer*/
+    display : flex;
+    justify-content : center;
+    /*Espacement de toute la table légèrement vers la gauche*/
+    padding-bottom : 9px;
 }
-/* Ajout de guillemets à chaque citation après */
-#actus article blockquote::after{
-    content :" »";
+#abonnement form section table tr td:nth-of-type(2) input:first-of-type{
+    /* Léger espacement entre les ":" de la saisie de chaque input*/
+    margin-left : 2px;
 }
 
-/* Bordure de la fin de page d'article */
-#actus article footer{
-    border-top : solid black 1px;
-    font-size : 11px;
+#abonnement form section:first-of-type table tr td:first-of-type{
+    /* Mise des labels alignés à droite pour enlever l'espace énorme entre les petits labels*/
     text-align : right;
 }
 
-/* Affiche l'URL suivie de l'image "lien_externe" pour les liens dans un article*/
-#actus article a:hover::after{
-    content: attr(href) url(../images/lien_externe.gif);
+#abonnement form section:first-of-type table tr td:nth-of-type(2){
+    /*Espacement entre chaque ligne où l'on doit remplir ces informations perso*/
+    padding : 2.5px;
 }
 
-/* Ajout du lien de l'auteur en bleu */
-#actus article footer a{
-    color : blue;
+#abonnement form section:first-of-type table tr:not(:nth-of-type(4)):not(:nth-of-type(5)) td:nth-of-type(2) input{
+    /* Grossisement des cases où l'utilisateurs doit rentrer ces informations perso*/
+    padding-right : 40px;
+}
+#abonnement form section:first-of-type table tr:nth-of-type(5) td:nth-of-type(2) input{
+    /* Ajustement du dernier input*/
+    padding-right: 25px;
 }
 
-/* Ajout des liens des musiques du choix de l'hymne en bleu */
-#actus article ul li a{
-    color : blue;
+
+
+                                 /***************Modification de la 2eme section***************/
+#duree input{
+    /* Masquage des boutons de type radio */
+    appearance : none;
 }
 
-/* Attribution du lien "Don't fear the reaper" en bleu */
-#actus p a{
-    color : blue;
+
+#duree input:checked +label{
+    /* Lorsque l'utilisateur va cliquer sur une des formules d'abonnement, l'abonnement va devenir rouge ainsi que le cadre*/
+    color : red;
+    border-color : red;
 }
 
-/* Ajout de l'icône checkbox pour le choix de l'hymne (list-style)*/
-#actus article ul li::before{
-    content: "\002611   ";
-}
-/*Suppression des puces des listes */
-#actus article ul li{
-    list-style :none;
-}
 
-/* Réglage et alignement des vidéos choisies pour déterminer l'hymne */
-#figures{
-    display : flex;
+/* Choix durée d'abonnement*/
+#duree label{
+    background-image : url(../images/fond.png);
+    font-weight: bold;
+    /* Valeurs données dans l'énoncé*/
+    height : 200px;
+    width : 140px;
+    border : solid black 5px;
+    
+    cursor: pointer;
+    box-sizing: border-box;
+
+
+
+    font-size : 30px;
+    /* Pour empêcher le chevauchement des autres paragraphes*/
+    display: inline-flex;
+    justify-content: center;
+    /*Centrage des titres (1mois,3mois,6mois,1an)*/
+    align-items: center;
     text-align : center;
+    /* Espacement extérieur des labels*/
+    margin-left : 32px;
+    margin-right : 35px;
+    margin-top : 10px;
+    margin-bottom : 12px;
+
+    /* Espacement intérieur des labels*/
+    padding-bottom : 15px;
+    padding-left : 1.5px;
+
 }
 
 
-#figures figure iframe{
-    margin : 15px;
-    /*Clips vidéo*/
-    width : 270px;
-    height : 170px;
-    /*Suppression de la bordure sur chaque vidéo (qui représentait une bordure noire)*/
-    border : transparent;
+
+/* Espacement vers la gauche ubiquement des input de type checkbox (Version électronique et version papier)*/
+#formule input[type="checkbox"]{
+    margin-left : 40px;
 }
-/*Titre des clips vidéo*/
-#figures figure figcaption{
-    font-size : 12px;
-    margin : auto;
-    margin-top : -15px;
-    padding : 10px;
+
+
+#formule table{
+    /* Espacement et ajustement des cases "Votre adresse","Votre code postal","Votre Ville"*/
+    margin-top : 10px;
+    margin-left : 110px;
+    margin-bottom : 12px;
+}
+
+#formule table tr td:first-of-type{
+    text-align : right;
+    padding-bottom : 5px;
+}
+
+/* Espacement uniquement du 1er et du dernier input (Adresse & Ville)*/
+#formule table tr:not(:nth-of-type(2)) td input{
+    padding-right : 55px;
+}
+
+/* Espacement uniquement du 2eme input (Code postal)*/
+#formule table tr:not(:first-of-type):not(:nth-of-type(3)) td input{
+    padding-right : 10px;
+}
+
+/* Léger espacement entre les ":" de la saisie de chaque input*/
+#formule table tr td input{
+    margin-left : 5px;
+}
+
+
+/* Masquage de la table*/
+#formule table{
+    display : none;
+}
+
+/*Lorsque on clique sur "Version papier", apparition des coordonnées à rentrer par l'utilisateur*/
+#formule input:nth-of-type(2):checked+label:nth-of-type(2)+table{
+    display : table;
+}
+
+
+
+                            /****************Modification de la 3eme section****************/
+
+
+#abonnement section:last-of-type p:first-of-type,
+#abonnement section:last-of-type p:nth-of-type(2){
+    /*Alignement vers la droite des 2 premiers paragraphes (J'ai bien lu... J'accepte de recevoir ...)*/
+    margin-left : 40px;
+    
+}
+
+#abonnement section:last-of-type p:last-of-type{
+    /* Alignement du bouton s'abonner et annuler au centre de la page*/
+    display:flex;
+    justify-content: center;
+}
+
+#abonnement section:last-of-type p:last-of-type input{
+    /*Couleur du fond du bouton (qui est la même couleur qu'on a mis dans le body pour le non gradient)*/
+    background : #EEE;
+    /* Mise en gras du texte + alignement du texte au centre*/
+    font-weight : bold;
+    text-align: center;
+    /*Réglage de la police d'écriture */
+    font-size : 16px;
+    /* Contour du cadre en noir*/
+    border : 2px black solid;
+
+    /* Espacement intérieur des boutons s'abonner et annuler*/
+    padding-bottom : 5px;
+    padding-right : 5px;
+
+    /* Espacement extérieur*/
+    /*Espacement vers la droite et la gauche pour chaque bouton pour éviter qu'ils soient collés*/
+    margin-left:12px;
+    margin-right : 12px;
+    margin-top : 10px;
+
+    /* Dimensions pour les 2 boutons*/
+    height : 30px;
+    width : 100px;
+}
+
+
+
+
+
+                            /****************************************************************
+                                                        Pied de page
+                            ****************************************************************/
+body > footer {
+    clear: both;
+    text-align: center;
+    margin-bottom: 10px;
 }
